@@ -38,7 +38,6 @@ export class UavController {
     return this.uavInstances;
   }
 
-
   // FROM UAV --------------------------------------------------------------------
   // Connection when UAV is powered
   @Post('uavconnect')

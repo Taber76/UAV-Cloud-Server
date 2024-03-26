@@ -24,14 +24,12 @@ export class UavService {
   }
 
   async uavConection(data: UavConnection, ip: string, uavInstances: { [key: string]: any }) {
-
     for (const key in uavInstances) {
       if (uavInstances[key].uavName === data.uavname) {
         uavInstances[key].setIpAndJwt(ip, data.jwt);
         return { response: "Already connected" };
       }
     }
-
     const uav = await this.uavModel.findOne({ uavname: data.uavname });
     if (!uav) {
       return { response: "UAV not found" };
